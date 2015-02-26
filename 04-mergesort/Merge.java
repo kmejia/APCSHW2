@@ -5,6 +5,7 @@ public class Merge {
     ArrayList<Integer> A = new ArrayList<Integer>();
     ArrayList<Integer> B = new ArrayList<Integer>();
     Random r = new Random();
+    public Merge() {
     A.add(r.nextInt(15));
     A.add(r.nextInt(15));
     A.add(r.nextInt(15));
@@ -17,6 +18,7 @@ public class Merge {
     B.add(r.nextInt(15));
     B.add(r.nextInt(15));
     B.add(r.nextInt(15));
+    }
     public ArrayList<Integer> combine(){
 	int i = 0;
 	int j = 0;
