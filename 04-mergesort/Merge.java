@@ -92,12 +92,7 @@ public class Merge {
 	long endT = System.nanoTime();
 	System.out.println("Mergesort of A takes "+ (endT - startT));
       
-	System.out.println( "A is ..."+x.A);
-	startT = System.nanoTime();
-	System.out.println(x.bsort(x.A));
-	endT = System.nanoTime();
-	
-	System.out.println("bubble sort of A"+" Takes " +(endT - startT));
+
 
 	startT = System.nanoTime();
 	Collections.sort(x.A);
