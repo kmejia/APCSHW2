@@ -41,5 +41,14 @@ public class LList {
 	    l.setNext(ans);
 	}
     }
+
+
+    ////Hw for 3/17
+    public void add(String  s) {
+	Node uno = l;
+	Node dos = l.getNext();
+	   
+	
+    }
 }
 
