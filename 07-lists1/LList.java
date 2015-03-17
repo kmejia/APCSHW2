@@ -1,6 +1,6 @@
 public class LList {
      private Node l=null;
-    
+     private int len;
     public void add(String s){
 	Node tmp = new Node(s);
 	tmp.setNext(l);
