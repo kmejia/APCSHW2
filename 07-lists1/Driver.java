@@ -7,5 +7,13 @@ public class  Driver{
 	    l.add(""+i);
 	}
 	System.out.println(l);
+
+		l.insert(1, "one");
+
+	l.insert(2, "b");
+
+	l.insert(0,"a");
+
+	System.out.println(l);
     }
 }

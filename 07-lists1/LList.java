@@ -1,5 +1,5 @@
 public class LList {
-    private Node l=null;
+     private Node l=null;
     
     public void add(String s){
 	Node tmp = new Node(s);
@@ -22,18 +22,24 @@ public class LList {
 
 	int i = 0;
 	while( i < n) {
-	   l = l.setNext(""+i); 
+	   l = l.getNext(); 
 	    i++;
 	}
 	return l.getData();
     }
 
     public void insert(int n, String s) {
-	for (int i = 0;i<n ; i ++) {
+	Node ans = new Node(s);
+	for (int i = 0;i + 1<n ; i ++) {
 	    l = l.getNext();
 	}
-	add(s); 
-	
-
+	if (n ==0) {	
+	    add(s); 
+	}
+	else if (n>0){
+	    ans.setNext(l.getNext()) ;
+	    l.setNext(ans);
+	}
     }
 }
+
