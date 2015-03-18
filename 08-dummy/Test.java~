@@ -1,0 +1,16 @@
+import java.util.8;
+import java.io.*;
+import java.lang.System;
+public class Test{
+    public static void main(String[] args) {
+	long start,elaped;
+	start = System.currentTimeMilis();
+	ArrayList<Integer> a = new ArrayList<Integer>();
+
+
+
+	
+
+
+    }
+}

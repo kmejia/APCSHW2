@@ -1,6 +1,6 @@
 public class LList {
     private Node l=null;//the start
-    private Node dummy = new Node("dummy");
+    private Node dummy = new Node(0);
     
      private int len;
     public LList() {
@@ -18,7 +18,7 @@ public class LList {
 		}
     
     
-    public String find(int n) {
+    public int find(int n) {
 
 	int i = 0;
 	while( i < n) {
@@ -28,7 +28,7 @@ public class LList {
 	return l.getData();
     }
 
-    public void insert(int n, String s) {
+    public void insert(int n, int s) {
 	Node ans = new Node(s);
 	for (int i = 0;i + 1<n ; i ++) {
 	    l = l.getNext();
@@ -44,7 +44,7 @@ public class LList {
 
 
     ////Hw for 3/17
-    public boolean add(String  s) {
+    public boolean add(int  s) {
 	Node uno = new Node(s);
 	dummy.setNext(uno);
 	uno.setNext(l);
@@ -52,7 +52,7 @@ public class LList {
 	len ++;
 	return true;
     }
-    public Node get(int n) {
+    public int get(int n) {
 	if (n<0 || n > len) {
 	    throw new IndexOutOfBoundsException();
 	}
@@ -66,10 +66,10 @@ public class LList {
 	    ans = ans.getNext();
 	    i++;
 	}
-	return ans;
+	return ans.getData();
     }
 
-    public boolean add(int n,String s) {
+    /*    public boolean add(int n,int s) {
 
 	if (n<0 || n > len) {
 	    throw new IndexOutOfBoundsException();
@@ -86,14 +86,16 @@ public class LList {
 	len--;
 	return true;
     }
+    */
 
-    public Node remove(int n) {
+    /*public Node remove(int n) {
 	if (n<0 || n > len) {
 	    throw new IndexOutOfBoundsException();
 	}
 	len--;
-	Node ans = get(n);
+	Node ans = l;
 	get(n-1).setNext(get(n-1).getNext().getNext());
 	return ans;
     }
+    */
 }
