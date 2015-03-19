@@ -2,9 +2,10 @@ public class LList {
     private Node l=null;//the start
     private Node dummy = new Node(0);
     
-     private int len;
+    private int len;
     public LList() {
 	dummy.setNext(l);
+	len=0;
     }
 
     public String toString(){
@@ -88,14 +89,17 @@ public class LList {
     }
     */
 
-    /*public Node remove(int n) {
-	if (n<0 || n > len) {
-	    throw new IndexOutOfBoundsException();
+    public boolean  remove(int n) {
+	Node ans = dummy;
+        for (int i = 0;i<len; i++) {
+	    if(ans.getNext().getData() ==n) {
+		ans.setNext(ans.getNext().getNext()) ;
+		len--;
+		return true;
+	    }
+	    ans = ans.getNext();
+	    
 	}
-	len--;
-	Node ans = l;
-	get(n-1).setNext(get(n-1).getNext().getNext());
-	return ans;
+	return false;
     }
-    */
 }
