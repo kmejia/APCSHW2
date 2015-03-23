@@ -21,7 +21,7 @@ public class LLit<E> implements Iterator<E>{
 		    if (hasNext()) {
 			if(t.getNext()!=null) {
 			    
-			    if (t.getNext()!=null) t=t.getNext().getNext();
+			    if (t.getNext()!=null) t.setNext(t.getNext());
 
 			} 
 		    }
