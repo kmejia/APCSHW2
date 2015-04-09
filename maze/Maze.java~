@@ -12,7 +12,7 @@ public class Maze
     private char[][] board;
     private int maxX;
     private int maxY;
-    private Queue<int[]> q = new Queue<int[]>();
+    private Queue<Point> q = new Queue<Point>();
     public Maze()
     {
 	maxX=40;
@@ -48,21 +48,32 @@ public class Maze
     }
 
     public void solve(int x , int y) {
-	q.enqueue(board[x][y]);
-	while (! q.isEmpty()) {
-	    if (maze[x][y] ==exit) {
+	Point currentPoint = new Point(x,y);
+	q.enqueue(currentPoint);
+	while (! q.empty()) {
+	    if (board[x][y] ==exit) {
 		return; }
+	    int currentX = currentPoint.getX();
+	    int currentY = currentPoint.getY();
+	    board[x][y] = visited;
 	    q.dequeue();
-	    if (path = maze[x+1][y]) {
-		q.enqueue(maze[x+1][y]) ;
+	    while (path == board[currentX+1][currentY]) {
+		currentPoint = new Point(currentX+1,currentY);
+		board[currentX+1][currentY] = visited;
+		q.enqueue(currentPoint) ;
+	        currentX = currentPoint.getX();
+	        currentY = currentPoint.getY();
+		
+		//q.dequeue();
 	    }
+	    
 	}
 
     }
     public static void main(String[] args){
 	Maze m = new Maze();
 	System.out.println(m);
-	m.solve();
+	m.solve(1,1);
 	System.out.println(m);
     }
 }

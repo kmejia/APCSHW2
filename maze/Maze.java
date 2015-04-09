@@ -63,7 +63,35 @@ public class Maze
 		q.enqueue(currentPoint) ;
 	        currentX = currentPoint.getX();
 	        currentY = currentPoint.getY();
-		
+		solve(currentX , currentY);
+		//q.dequeue();
+	    }
+	    while (path == board[currentX][currentY+1]) {
+		currentPoint = new Point(currentX,currentY+1);
+		board[currentX][currentY+1] = visited;
+		q.enqueue(currentPoint) ;
+	        currentX = currentPoint.getX();
+	        currentY = currentPoint.getY();
+		solve(currentX , currentY);
+
+		//q.dequeue();
+	    }
+	    while (path == board[currentX-1][currentY]) {
+		currentPoint = new Point(currentX-1,currentY);
+		board[currentX-1][currentY] = visited;
+		q.enqueue(currentPoint) ;
+	        currentX = currentPoint.getX();
+	        currentY = currentPoint.getY();
+		solve(currentX , currentY);
+		//q.dequeue();
+	    }
+	    while (path == board[currentX][currentY-1]) {
+		currentPoint = new Point(currentX,currentY-1);
+		board[currentX][currentY-1] = visited;
+		q.enqueue(currentPoint) ;
+	        currentX = currentPoint.getX();
+	        currentY = currentPoint.getY();
+		solve(currentX , currentY);
 		//q.dequeue();
 	    }
 	    
