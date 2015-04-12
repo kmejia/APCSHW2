@@ -61,27 +61,19 @@ public class BreadthFirst{
 		//System.exit(0);
 	    }
 	    try{
-	    if (p.getX()-1 > 0 && p.getX()-1 < maxX &&
-		p.getY() > 0 && p.getY() < maxY && 
-		board[p.getX()-1][p.getY()] == path) {
+	    if ( board[p.getX()-1][p.getY()] == path) {
 		q.enqueue(new newNode( board[p.getX()-1][p.getY()],p.getX()-1, p.getY()));
 	    }
 
-	    if (p.getX()+1 > 0 && p.getX()+1 < maxX &&
-		p.getY() > 0 && p.getY() < maxY && 
-		board[p.getX()+1][p.getY()] == path) {
+	    if (board[p.getX()+1][p.getY()] == path) {
 	        q.enqueue(new newNode (board[p.getX()+1][p.getY()],p.getX()+1, p.getY()));
 	    }
 
-	    if (p.getX() > 0 && p.getX() < maxX &&
-		p.getY()-1 > 0 && p.getY()-1 < maxY && 
-		board[p.getX()][p.getY()-1] == path) {
+	    if	(board[p.getX()][p.getY()-1] == path) {
 	        q.enqueue(new newNode(board[p.getX()][p.getY()-1],p.getX(), p.getY()-1));
 	    }
 
-	    if (p.getX() > 0 && p.getX() < maxX &&
-		p.getY()+1 > 0 && p.getY()+1 < maxY && 
-		board[p.getX()][p.getY()+1] == path) {
+	    if(	board[p.getX()][p.getY()+1] == path) {
 	        q.enqueue(new newNode(board[p.getX()][p.getY()+1],p.getX(), p.getY()+1));
 	    }
 	    }catch(Exception e) {
