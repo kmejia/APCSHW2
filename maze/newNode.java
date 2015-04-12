@@ -2,23 +2,23 @@ public class newNode{
     private int xcor;
     private int ycor;
     private char data;
-    private Node next;
+    private newNode next;
      
-    public Node(char d) {
+    public newNode(char d) {
 	data = d;
 	next = null;
     }
 
-    public Node(char d, int x, int yc){
+    public newNode(char d, int x, int y){
 	data = d;
         xcor = x;
 	ycor = y;
 	next = null;
     }
 
-    public void setData(int xcor, int ycor){
-        x = xcor;
-	y = ycor;
+    public void setData(int x, int y){
+        xcor = x;
+	ycor = y;
     }
 
     public int getX(){
@@ -33,15 +33,15 @@ public class newNode{
 	return data;
     }
 
-    public void setNext(Node n){
+    public void setNext(newNode n){
 	next = n;
     }
 
-    public Node getNext(){
+    public newNode getNext(){
 	return next;
     }
 
     public String toString(){
-	return "[" + x + ", " + y + "]";
+	return "[" + xcor + ", " + ycor + "]";
     }
 }

@@ -1,0 +1,67 @@
+public class Queue {
+    private newNode start;
+    private newNode end;
+    private int len;
+    public Queue() {
+	start = null;
+	end = null;
+	//start.setNext(end);
+	len = 0;
+    }
+    public void enqueue(newNode n) {
+	
+	if(len ==0) {
+	    start = n;
+	    end = start;
+	}
+        else{ newNode temp = n;
+	    end.setNext(temp);
+	    end = temp;
+ 	}
+	len++;
+    }
+    public newNode dequeue() {
+	/*
+	  if (len==0) {
+	  return "Len = 0";
+	  }
+	*/
+
+	if (len == 1) {
+	    return end.getNext();
+	}
+	else {
+	    newNode ans = start;
+	    start = start.getNext();
+	}
+	return ans;
+    }
+    public boolean empty() {
+	return len == 0;
+    }
+    public newNode head() {
+	return start;//.getNext().getData();
+    }
+    public String toString(){
+	String s = "";
+	newNode temp = end.getNext();
+	while( tmp!=null) {
+	    s = s + tmp + " --> ";
+	    temp = temp.getNext();
+	}
+	s = s + "null";
+	return s;
+    }
+    public static void main(String[] args) {
+	// Queue q = new Queue();
+	// q.enqueue(1);
+	// q.enqueue(2);
+	// q.enqueue(3);
+	// q.enqueue(4);
+	// System.out.println(q);
+	// System.out.println(q.dequeue());
+	// System.out.println(q);
+	// System.out.println(q.empty());
+	// System.out.println(q.head());
+    }
+}
