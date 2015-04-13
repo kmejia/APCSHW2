@@ -58,24 +58,34 @@ public class BreadthFirst{
 	    if (p.getData() == exit) {
 		solved = true;
 		return;
-		//System.exit(0);
+		
 	    }
 	    try{
-	    if ( board[p.getX()-1][p.getY()] == path) {
-		q.enqueue(new newNode( board[p.getX()-1][p.getY()],p.getX()-1, p.getY()));
-	    }
-
-	    if (board[p.getX()+1][p.getY()] == path) {
-	        q.enqueue(new newNode (board[p.getX()+1][p.getY()],p.getX()+1, p.getY()));
-	    }
-
-	    if	(board[p.getX()][p.getY()-1] == path) {
-	        q.enqueue(new newNode(board[p.getX()][p.getY()-1],p.getX(), p.getY()-1));
-	    }
-
-	    if(	board[p.getX()][p.getY()+1] == path) {
-	        q.enqueue(new newNode(board[p.getX()][p.getY()+1],p.getX(), p.getY()+1));
-	    }
+		if ( board[p.getX()-1][p.getY()] == path) {
+		      board[x][y] = visited;
+		    q.enqueue(new newNode( board[p.getX()-1][p.getY()],p.getX()-1, p.getY()));
+		    board[x][y] = visited;
+ 		}
+		
+		if (board[p.getX()+1][p.getY()] == path) {
+		      board[x][y] = visited;
+		    q.enqueue(new newNode (board[p.getX()+1][p.getY()],p.getX()+1, p.getY()));
+		      board[x][y] = visited;
+		}
+		
+		if(board[p.getX()][p.getY()-1] == path) {  board[x][y] = visited;
+		    q.enqueue(new newNode(board[p.getX()][p.getY()-1],p.getX(), p.getY()-1));
+		      board[x][y] = visited;
+		}
+		
+		if(board[p.getX()][p.getY()+1] == path) {  board[x][y] = visited;
+		    q.enqueue(new newNode(board[p.getX()][p.getY()+1],p.getX(), p.getY()+1));
+		      board[x][y] = visited;
+		}
+		
+		// if(    (board[p.getX()][p.getY()+1] == me)||(board[p.getX()-1][p.getY()] == me)|| (board[p.getX()][p.getY()-1] == me)||(board[p.getX()+1][p.getY()] == me) ) {board[x][y] = visited;
+		//     solve(x,y);}
+		
 	    }catch(Exception e) {
 		
 	    }
