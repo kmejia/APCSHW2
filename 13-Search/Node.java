@@ -10,7 +10,15 @@ public class Node {
 	this.x = x;
 	this.y = y;
         setM();
+	setD();
 	this.steps=s;
+    }
+        public Node(int x, int y){
+	this.x = x;
+	this.y = y;
+        setM();
+	setD();
+	
     }
     public Node getPrev() {
 	return prev;
@@ -37,7 +45,10 @@ public class Node {
     public int getPriority(){
 	return p + steps;
     }
-    public double getD(){return d;}
+    public double getD(){
+	return d;}
+    public int getM(){
+	return p;}
     public int getS(){
 	return steps;
     }

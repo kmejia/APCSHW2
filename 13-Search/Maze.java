@@ -15,6 +15,7 @@ public class Maze
     private boolean solved = false;
 
     private newFrontier f;
+    private Frontier2 g;
 		
     public void delay(int n){
 	try {
@@ -126,7 +127,52 @@ public class Maze
 
 	    delay(50);
 	    System.out.println(this);
-	    System.out.println(steps);
+	    System.out.println("steps:   "+steps);
+	}
+
+	// path recovery
+	for (Node p = current.getPrev(); p != null ; p = p.getPrev()){
+	    board[p.getX()][p.getY()] = 'P';
+	    delay(100);
+	    System.out.println(this);
+	}
+    }
+        public void addToFront2(int tx,int ty, Node current){
+	Node tmp = null;
+	if (board[tx][ty]=='#' || board[tx][ty]=='$'){
+	    tmp = new Node(tx,ty,current.getS() + 1);
+	    tmp.setPrev(current);
+	    g.add(tmp);
+	}
+						
+    }
+     public void bfs2(int x, int y){// euclidean heuristic
+	//f = new Frontier();
+	g = new Frontier2();
+
+	g.add(new Node(x,y));
+
+	int tx=0,ty=0;
+	Node current = null;
+	while (!g.isEmpty()){
+	    current = g.remove();//node with best priority
+	    int cx = current.getX();
+	    int cy = current.getY();
+	    double dist = current.getD();
+
+	    if (board[cx][cy]=='$')
+		break;
+						
+	    board[cx][cy]='z';
+
+	    addToFront2(cx+1,cy,current);
+	    addToFront2(cx-1,cy,current);
+	    addToFront2(cx,cy+1,current);
+	    addToFront2(cx,cy-1,current);
+
+	    delay(50);
+	    System.out.println(this);
+	    System.out.println("distance:  "+dist);
 	}
 
 	// path recovery
@@ -142,6 +188,11 @@ public class Maze
 	System.out.println(m);
 	m.bfs(1,1);
 	System.out.println(m);
+	m.delay(2000);
+	System.out.println(m);
+	m.bfs2(1,1);
+	System.out.println(m);
+		
 		
     }
 }
