@@ -1,0 +1,8 @@
+import java.util.*;
+
+public class Frontier2 {
+    public LinkedList<Node> l = new LinkedList<Node>();
+
+    public void add(Node n){
+	l.add(n);
+    }
