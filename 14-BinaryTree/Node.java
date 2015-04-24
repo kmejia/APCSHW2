@@ -18,6 +18,9 @@ public class Node {
     public Node getRight(){
 	return right;
     }
+    public int compareTo(Node  n) {
+	return n.getData() -data ;
+     }		
     public void setLeft(Node n){
 	left = n;
     }
@@ -30,12 +33,4 @@ public class Node {
 }
 
     
-    
-    
-    
-
-
-
-
-
-}
+   
