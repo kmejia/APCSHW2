@@ -6,7 +6,7 @@ public class Tree{
     public Node Search(Node T, int i) {
 	if(T==null) {return null;}
 	while(T!=null){
-	    int c = T.getData.compareTo(i);
+	    int c = T.compareTo(new Node(i));
 	    if(c>0){
 		T=T.getRight();}
 	    if(c<0) {
@@ -15,17 +15,37 @@ public class Tree{
 	}
 	
     }
-    public void insert(node n) {
-	if (T.getNext()==null){
-	    T.setNext(n);
-	    return;}
-	else
-
-
-
-
-
+    public void insert(Node n) {
+	Node dummy = new Node(0);
+	Node T = root;
+	
+	int c = T.compareTo(n);
+	if(c>0){
+	    //dummy.setRight(T);
+	    while (dummy!=null) {
+		T = T.getRight();
+		dummy.setRight(T);
+		
+	    }
+	    T=dummy.setRight(n);
+	    return;
+	}
+	if(c<0) {
+	    while (dummy!=null) {
+		T=T.getLeft();
+		dummy.setLeft(T);
+	    }
+	    T=dummy.setLeft(n);
+	    return;
+	}
+        else{
+	    return;
+	}
+    }
+    
+    public static void main(String[] args) {
 
 
     }
 }
+
