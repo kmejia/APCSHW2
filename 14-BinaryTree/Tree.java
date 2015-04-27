@@ -6,72 +6,81 @@ public class Tree{
     public Tree(Node n){
 	root = n; }
     public Node getRoot(){return root;}
-    public Node Search(Node T, int i) {
-	if(T==null) {return null;}
-	while(T!=null){
-	    int c = T.compareTo(new Node(i));
-	    if(c>0){
-		T=T.getRight();}
-	    if(c<0) {
-		T=T.getLeft();}
-	    else{return T;}
+    public Node search(Node t, int i){
+	if (t==null || t.getData()==i){
+	    return t;
 	}
-	return null;
+	else if (i<t.getData()){
+	    return search(t.getLeft(),i);
+	} else {
+	    return search(t.getRight(),i);
+	}
     }
-    public void insert(Node n) {
-	Node dummy = new Node(0);
-	Node T = root;
-	
-	if (root == null) {
-	    root = n;
+    public String search(int i){
+	Node n = search(root,i);
+	if (n==null){
+	    return "NOT FOUND";
+	}else{
+	    return n.toString();
 	}
-	else {
-	    int c = T.compareTo(n);  
-        
-            while (T != null) {
-		 c = T.compareTo(n);
-		 
-		 if (c<0){
-		     if (T.getRight()==null){
-			 T.setRight(n);
-			 return;}
-			 
-                    T = T.getRight();
-		 }
-		 else{
-		     if (T.getLeft()==null){
-			 T.setLeft(n);
-			 return;}
-			 
-		     T = T.getLeft();
+    }
 
-		 }
-            }
-            if (c<0)
-                T.setRight(n);
-            else
-                T.setLeft(n);
-	    
-        }
+  
+    public void insert(int i){
+	Node n = new Node(i);
+	Node t2=null;
+	Node t = root;
+	if (root==null){
+	    root=n;
+	    return;
+	}
+	while (t!=null){
+	    t2 = t;
+	    if (t.getData()==i)
+		return;
+	    else if (t.getData() < i)
+		t=t.getRight();
+	    else if (t.getData() > i)
+		t=t.getLeft();
+	    else
+		return;
+	}
+	if (i>t2.getData())
+	    t2.setRight(n);
+	else
+	    t2.setLeft(n);
     }
+    
     public String toString(Node T) {
 	String s = "";
 	if(T == null) {
-	    s+="() ";
+	    s+="<null>";
 	    return s;
 	}
-	s += T;
-	s += " (" + toString(T.getLeft()) + ") (" +toString(T.getRight()) + ")";
+	s += T+"\n";
+	s += " (" + toString(T.getLeft()) + ")"+" (" +toString(T.getRight()) + ")" +"\n";
 	return s;
     }
-    
-    
+    public String toString(){
+	return toString(root);
+    }
+    public String ascend() {
+
+
+	return "";
+    }
     public static void main(String[] args) {
 	Tree k = new Tree();
-	k.insert(new Node(2));
-	k.insert(new Node(7));
-        k.insert(new Node(1));
+	System.out.println(k);
+	k.insert(2);
+	k.insert(7);
+        k.insert(12);
+	k.insert(5);
+	k.insert(9);
+	k.insert(21);
+	k.insert(100);
 	System.out.println(k.toString(k.getRoot()));
+	System.out.println(k.search(k.getRoot(), 100));
     }
 }
 
