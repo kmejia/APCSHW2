@@ -2,7 +2,11 @@ public class Node {
     private int data;
     private Node left,right;
     
-    
+    public Node(){
+	data =null;
+	left=null;
+	right =null;
+}
     public Node(int s){
 	    data = s;
 	    left = null;
@@ -30,7 +34,7 @@ public class Node {
 	return left;
     }
     public String toString(){
-	return ""+data+"....";
+	return ""+data+">";
     }
 }
 

@@ -50,7 +50,13 @@ public class Tree{
 	else
 	    t2.setLeft(n);
     }
-    
+    public String Traverse(Node T) {
+	if (T== null) {return "";}
+	else{
+	return Traverse(T.getLeft()) +
+		T+
+		Traverse(T.getRight());}
+	}		
     public String toString(Node T) {
 	String s = "";
 	if(T == null) {
@@ -62,16 +68,28 @@ public class Tree{
 	return s;
     }
     public String toString(){
-	return toString(root);
+	return Traverse(root);
     }
-    public String ascend() {
-
-
-	return "";
+    public void Remove(int d) {//assumes d is in tree
+	Node parent =null;//new Node();
+	Node ans = root;
+	if(root==null){return;}
+	while(ans.getData()!=d) {
+	    parent = ans;
+	    if (t.getData() < i)
+		t=t.getRight();
+	    else if (t.getData() > i)
+		t=t.getLeft();
+	}
+	if (ans.getLeft()==null&&ans.getRight()==null){
+	    if(parent.getData()<ans.getData())
+	}
+       
     }
     public static void main(String[] args) {
 	Tree k = new Tree();
 	System.out.println(k);
+	System.out.println("----------------------------------------------");
 	k.insert(2);
 	k.insert(7);
         k.insert(12);
@@ -79,8 +97,8 @@ public class Tree{
 	k.insert(9);
 	k.insert(21);
 	k.insert(100);
-	System.out.println(k.toString(k.getRoot()));
-	System.out.println(k.search(k.getRoot(), 100));
+	System.out.println(k);
+	System.out.println(k);
     }
 }
 
