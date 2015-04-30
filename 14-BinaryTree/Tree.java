@@ -86,8 +86,18 @@ public class Tree{
 		parent.setLeft(null);}
 	    else{parent.setRight(null);}	
 	}
-       
-    }
+	else if (ans.getLeft()==null){
+	  
+	    parent.setRight(ans.getRight());}	
+	
+	else if (ans.getRight()==null){
+	  
+	    parent.setRight(ans.getRight());}
+	else{
+
+	}
+	}
+
     public static void main(String[] args) {
 	Tree k = new Tree();
 	System.out.println(k);
@@ -101,7 +111,7 @@ public class Tree{
 	k.insert(100);
 	System.out.println(k);
 	k.Remove(100);
-	k.Remove(2);
+	//k.Remove(2);
 	k.Remove(7);
 	System.out.println(k);
     }
