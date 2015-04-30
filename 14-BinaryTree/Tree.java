@@ -76,13 +76,15 @@ public class Tree{
 	if(root==null){return;}
 	while(ans.getData()!=d) {
 	    parent = ans;
-	    if (t.getData() < i)
-		t=t.getRight();
-	    else if (t.getData() > i)
-		t=t.getLeft();
+	    if (ans.getData() < d)
+		ans=ans.getRight();
+	    else if (ans.getData() > d)
+		ans=ans.getLeft();
 	}
 	if (ans.getLeft()==null&&ans.getRight()==null){
-	    if(parent.getData()<ans.getData())
+	    if (ans.getData() > d){
+		parent.setLeft(null);}
+	    else{parent.setRight(null);}	
 	}
        
     }
@@ -98,6 +100,9 @@ public class Tree{
 	k.insert(21);
 	k.insert(100);
 	System.out.println(k);
+	k.Remove(100);
+	k.Remove(2);
+	k.Remove(7);
 	System.out.println(k);
     }
 }
