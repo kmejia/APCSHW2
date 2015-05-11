@@ -21,6 +21,7 @@ public class Node {
 	return right;
     }
     public int compareTo(Node  n) {
+	if (n==null) {return 0;}
 	return n.getData() -data ;
      }		
     public void setLeft(Node n){

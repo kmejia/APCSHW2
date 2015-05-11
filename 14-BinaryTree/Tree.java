@@ -96,8 +96,20 @@ public class Tree{
 	else{
 
 	}
-	}
+    }
+    public  int Max(Node T){
+	int max = T.getData();
+	    
+	if(T.getLeft() != null) {
+	    max = Math.max(max, Max(T.getLeft()));
+	    }
+	if(T.getRight() != null) {
+	    max = Math.max(max, Max(T.getRight()));
+	    }
+	    return max;
+    }
 
+    
     public static void main(String[] args) {
 	Tree k = new Tree();
 	System.out.println(k);
@@ -109,11 +121,12 @@ public class Tree{
 	k.insert(9);
 	k.insert(21);
 	k.insert(100);
+	k.insert(1);
 	System.out.println(k);
-	k.Remove(100);
+	//k.Remove(100);
 	//k.Remove(2);
-	k.Remove(7);
-	System.out.println(k);
+	//k.Remove(7);
+	System.out.println(k.Max(k.getRoot()));
     }
 }
 
