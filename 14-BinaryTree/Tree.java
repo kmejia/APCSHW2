@@ -108,8 +108,31 @@ public class Tree{
 	    }
 	    return max;
     }
-
+    public int Height(Node T)
+    {
+	if (T == null)
+	    {
+		return 0;
+	    }
+	else
+	    {
+		return 1 +
+		    Math.max( Height(T.getLeft()),  Height(T.getRight()));
+	    }
+    }
+    public  void splitDupes(Node T) {
+	if (T.getLeft() != null ){
+	    if (T.getData()==(T.getLeft().getData())) {
+		Node B = new Node(T.getData() - 1);
+		B.setLeft(T.getLeft());
+		T.setLeft(B);
+	    } 
+	}
+    }
     
+    public  int longest(Node T) {
+	return Height(T.getLeft()) + Height(T.getRight());
+    }	
     public static void main(String[] args) {
 	Tree k = new Tree();
 	System.out.println(k);
@@ -127,6 +150,8 @@ public class Tree{
 	//k.Remove(2);
 	//k.Remove(7);
 	System.out.println(k.Max(k.getRoot()));
+	System.out.println(k.Height(k.getRoot()));
+	System.out.println(k.longest(k.getRoot()));
     }
 }
 
